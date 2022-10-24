@@ -141,6 +141,14 @@ _G.packer_plugins = {
     path = "/Users/ganquan/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
+  ["nvim-notify"] = {
+    config = { "\27LJ\2\n2\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\23config.nvim-notify\frequire-\1\0\4\0\3\0\0066\0\0\0009\0\1\0003\2\2\0)\3Ð\aB\0\3\1K\0\1\0\0\rdefer_fn\bvim\0" },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/Users/ganquan/.local/share/nvim/site/pack/packer/opt/nvim-notify",
+    url = "https://github.com/rcarriga/nvim-notify"
+  },
   ["nvim-tree.lua"] = {
     config = { "require('config.nvimtree')" },
     loaded = true,
@@ -210,6 +218,14 @@ _G.packer_plugins = {
     path = "/Users/ganquan/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
   },
+  ["vim-matchup"] = {
+    after_files = { "/Users/ganquan/.local/share/nvim/site/pack/packer/opt/vim-matchup/after/plugin/matchit.vim" },
+    loaded = false,
+    needs_bufread = true,
+    only_cond = false,
+    path = "/Users/ganquan/.local/share/nvim/site/pack/packer/opt/vim-matchup",
+    url = "https://github.com/andymass/vim-matchup"
+  },
   ["vim-startify"] = {
     loaded = true,
     path = "/Users/ganquan/.local/share/nvim/site/pack/packer/start/vim-startify",
@@ -227,6 +243,14 @@ time([[Defining packer_plugins]], false)
 time([[Setup for committia.vim]], true)
 vim.cmd('packadd committia.vim')
 time([[Setup for committia.vim]], false)
+-- Config for: impatient.nvim
+time([[Config for impatient.nvim]], true)
+require('impatient')
+time([[Config for impatient.nvim]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+require('config.gitsigns')
+time([[Config for gitsigns.nvim]], false)
 -- Config for: lualine.nvim
 time([[Config for lualine.nvim]], true)
 require('config.lualine')
@@ -235,6 +259,10 @@ time([[Config for lualine.nvim]], false)
 time([[Config for vim-fugitive]], true)
 require('config.fugitive')
 time([[Config for vim-fugitive]], false)
+-- Config for: nvim-lspconfig
+time([[Config for nvim-lspconfig]], true)
+require('config.lsp')
+time([[Config for nvim-lspconfig]], false)
 -- Config for: neoscroll.nvim
 time([[Config for neoscroll.nvim]], true)
 require('config.neoscroll')
@@ -243,18 +271,6 @@ time([[Config for neoscroll.nvim]], false)
 time([[Config for nvim-tree.lua]], true)
 require('config.nvimtree')
 time([[Config for nvim-tree.lua]], false)
--- Config for: impatient.nvim
-time([[Config for impatient.nvim]], true)
-require('impatient')
-time([[Config for impatient.nvim]], false)
--- Config for: nvim-lspconfig
-time([[Config for nvim-lspconfig]], true)
-require('config.lsp')
-time([[Config for nvim-lspconfig]], false)
--- Config for: gitsigns.nvim
-time([[Config for gitsigns.nvim]], true)
-require('config.gitsigns')
-time([[Config for gitsigns.nvim]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
 vim.cmd [[ packadd fidget.nvim ]]
@@ -280,8 +296,8 @@ vim.cmd [[au FileType qf ++once lua require("packer.load")({'nvim-bqf'}, { ft = 
 time([[Defining lazy-load filetype autocommands]], false)
   -- Event lazy-loads
 time([[Defining lazy-load event autocommands]], true)
-vim.cmd [[au VimEnter * ++once lua require("packer.load")({'bufferline.nvim'}, { event = "VimEnter *" }, _G.packer_plugins)]]
-vim.cmd [[au BufEnter * ++once lua require("packer.load")({'nvim-treesitter'}, { event = "BufEnter *" }, _G.packer_plugins)]]
+vim.cmd [[au BufEnter * ++once lua require("packer.load")({'nvim-treesitter', 'nvim-notify'}, { event = "BufEnter *" }, _G.packer_plugins)]]
+vim.cmd [[au VimEnter * ++once lua require("packer.load")({'vim-matchup', 'bufferline.nvim'}, { event = "VimEnter *" }, _G.packer_plugins)]]
 time([[Defining lazy-load event autocommands]], false)
 vim.cmd("augroup END")
 

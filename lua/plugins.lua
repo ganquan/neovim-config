@@ -81,6 +81,19 @@ return require('packer').startup(function(use)
     -- search emoji and other symbols
     use { 'nvim-telescope/telescope-symbols.nvim', after = "telescope.nvim" }
 
+    use { 'andymass/vim-matchup', event = "VimEnter" }
+
+    -- notification plugin
+    use {
+      'rcarriga/nvim-notify',
+      event = "BufEnter",
+      config = function()
+        vim.defer_fn(function()
+          require("config.nvim-notify")
+        end, 2000)
+      end,
+    }
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then
