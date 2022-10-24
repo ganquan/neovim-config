@@ -18,6 +18,12 @@ return require('packer').startup(function(use)
     use {'wbthomason/packer.nvim'}
     -- My plugins here
 
+
+    use {'j-hui/fidget.nvim',
+            after = "nvim-lspconfig",
+            config = [[require('config.fidget-nvim')]] 
+        }
+
     use {'neovim/nvim-lspconfig', config = [[require('config.lsp')]] } -- Configurations for Nvim LSP
     use {'mhinz/vim-startify'}
     use {'tomasiser/vim-code-dark'}
