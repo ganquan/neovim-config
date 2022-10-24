@@ -1,6 +1,6 @@
 require("bufferline").setup {
     options = {
-        numbers = "buffer_id",
+        numbers = "ordinal",
         close_command = "bdelete! %d",
         right_mouse_command = nil,
         left_mouse_command = "buffer %d",
@@ -42,5 +42,21 @@ require("bufferline").setup {
         enforce_regular_tabs = false,
         always_show_bufferline = true,
         sort_by = "id",
+
+        offsets = {
+            {
+                filetype = "NvimTree",
+                text = "File Explorer",
+                highlight = "Directory",
+                separator = true -- use a "true" to enable the default, or set your own character
+            },
+            {
+                filetype = "Vista",
+                text = "Tag",
+                highlight = "",
+                separator = true -- use a "true" to enable the default, or set your own character
+            },
+        }
+ 
     },
 }
