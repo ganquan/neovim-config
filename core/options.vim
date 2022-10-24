@@ -28,3 +28,5 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 " }}}
 
+" Set floaterm window foreground to gray once the cursor moves out from it
+hi FloatermNC guifg=gray

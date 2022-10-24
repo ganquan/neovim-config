@@ -204,6 +204,11 @@ _G.packer_plugins = {
     path = "/Users/ganquan/.local/share/nvim/site/pack/packer/opt/vim-conflicted",
     url = "https://github.com/christoomey/vim-conflicted"
   },
+  ["vim-floaterm"] = {
+    loaded = true,
+    path = "/Users/ganquan/.local/share/nvim/site/pack/packer/start/vim-floaterm",
+    url = "https://github.com/voldikss/vim-floaterm"
+  },
   ["vim-flog"] = {
     commands = { "Flog" },
     loaded = false,
@@ -243,18 +248,14 @@ time([[Defining packer_plugins]], false)
 time([[Setup for committia.vim]], true)
 vim.cmd('packadd committia.vim')
 time([[Setup for committia.vim]], false)
--- Config for: impatient.nvim
-time([[Config for impatient.nvim]], true)
-require('impatient')
-time([[Config for impatient.nvim]], false)
 -- Config for: gitsigns.nvim
 time([[Config for gitsigns.nvim]], true)
 require('config.gitsigns')
 time([[Config for gitsigns.nvim]], false)
--- Config for: lualine.nvim
-time([[Config for lualine.nvim]], true)
-require('config.lualine')
-time([[Config for lualine.nvim]], false)
+-- Config for: nvim-tree.lua
+time([[Config for nvim-tree.lua]], true)
+require('config.nvimtree')
+time([[Config for nvim-tree.lua]], false)
 -- Config for: vim-fugitive
 time([[Config for vim-fugitive]], true)
 require('config.fugitive')
@@ -267,19 +268,23 @@ time([[Config for nvim-lspconfig]], false)
 time([[Config for neoscroll.nvim]], true)
 require('config.neoscroll')
 time([[Config for neoscroll.nvim]], false)
--- Config for: nvim-tree.lua
-time([[Config for nvim-tree.lua]], true)
-require('config.nvimtree')
-time([[Config for nvim-tree.lua]], false)
+-- Config for: lualine.nvim
+time([[Config for lualine.nvim]], true)
+require('config.lualine')
+time([[Config for lualine.nvim]], false)
+-- Config for: impatient.nvim
+time([[Config for impatient.nvim]], true)
+require('impatient')
+time([[Config for impatient.nvim]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
+vim.cmd [[ packadd telescope.nvim ]]
+vim.cmd [[ packadd telescope-symbols.nvim ]]
 vim.cmd [[ packadd fidget.nvim ]]
 
 -- Config for: fidget.nvim
 require('config.fidget-nvim')
 
-vim.cmd [[ packadd telescope.nvim ]]
-vim.cmd [[ packadd telescope-symbols.nvim ]]
 time([[Sequenced loading]], false)
 
 -- Command lazy-loads
@@ -296,8 +301,8 @@ vim.cmd [[au FileType qf ++once lua require("packer.load")({'nvim-bqf'}, { ft = 
 time([[Defining lazy-load filetype autocommands]], false)
   -- Event lazy-loads
 time([[Defining lazy-load event autocommands]], true)
-vim.cmd [[au BufEnter * ++once lua require("packer.load")({'nvim-treesitter', 'nvim-notify'}, { event = "BufEnter *" }, _G.packer_plugins)]]
 vim.cmd [[au VimEnter * ++once lua require("packer.load")({'vim-matchup', 'bufferline.nvim'}, { event = "VimEnter *" }, _G.packer_plugins)]]
+vim.cmd [[au BufEnter * ++once lua require("packer.load")({'nvim-treesitter', 'nvim-notify'}, { event = "BufEnter *" }, _G.packer_plugins)]]
 time([[Defining lazy-load event autocommands]], false)
 vim.cmd("augroup END")
 
