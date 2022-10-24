@@ -34,6 +34,7 @@ require("bufferline").setup {
 
             return true
         end,
+        color_icons = true,
         show_buffer_icons = true,
         show_buffer_close_icons = true,
         show_close_icon = true,
@@ -52,11 +53,11 @@ require("bufferline").setup {
                 separator = true -- use a "true" to enable the default, or set your own character
             },
             {
-                filetype = "Vista",
-                text = "Tag",
-                highlight = "Directory",
+                filetype = "vista_kind",
+                text = "Source Tag",
+                highlight = "",
                 separator = true -- use a "true" to enable the default, or set your own character
-            },
+            }
         }
  
     },

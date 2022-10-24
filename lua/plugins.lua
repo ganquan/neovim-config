@@ -29,6 +29,9 @@ return require('packer').startup(function(use)
     use {'tomasiser/vim-code-dark'}
     use {'sainnhe/gruvbox-material'}
 
+    -- Comment plugin
+    use { "tpope/vim-commentary", event = "VimEnter" }
+
     use {'nvim-lualine/lualine.nvim',
             requires = { 'kyazdani42/nvim-web-devicons', opt = true },
             config = [[require('config.lualine')]]
@@ -95,6 +98,21 @@ return require('packer').startup(function(use)
     }
 
     use { 'voldikss/vim-floaterm' }
+
+    use { 'onsails/lspkind-nvim', event = "VimEnter" }
+    use { 'hrsh7th/nvim-cmp', 
+            after = "lspkind-nvim",
+            config = [[require('config.nvim-cmp')]] 
+        }
+
+    use { 'hrsh7th/cmp-nvim-lsp' }
+    use { 'hrsh7th/cmp-buffer' }
+    use { 'hrsh7th/cmp-path' }
+    use { 'hrsh7th/cmp-cmdline' }
+
+    use { 'hrsh7th/cmp-vsnip' }
+    use { 'hrsh7th/vim-vsnip' }
+
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
