@@ -12,5 +12,5 @@ vim.keymap.set('n', 'fb', builtin.buffers, {})
 vim.keymap.set('n', 'fh', builtin.help_tags, {})
 
 
-keymap.set("n", "<F12>", "<cmd>FloatermToggle<CR>", { silent = true, desc = "toggle float terminal" })
-keymap.set("t", "<F12>", "<C-\\><C-n><cmd>FloatermToggle<CR>", { silent = true, desc = "toggle float terminal" })
+keymap.set("n", "<leader>ft", "<cmd>FloatermToggle<CR>", { silent = true, desc = "toggle float terminal" })
+keymap.set("t", "<leader>ft", "<C-\\><C-n><cmd>FloatermToggle<CR>", { silent = true, desc = "toggle float terminal" })
