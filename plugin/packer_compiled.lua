@@ -82,6 +82,18 @@ _G.packer_plugins = {
     path = "/Users/ganquan/.local/share/nvim/site/pack/packer/opt/bufferline.nvim",
     url = "https://github.com/akinsho/bufferline.nvim"
   },
+  ["committia.vim"] = {
+    loaded = false,
+    needs_bufread = false,
+    path = "/Users/ganquan/.local/share/nvim/site/pack/packer/opt/committia.vim",
+    url = "https://github.com/rhysd/committia.vim"
+  },
+  ["gitsigns.nvim"] = {
+    config = { "require('config.gitsigns')" },
+    loaded = true,
+    path = "/Users/ganquan/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
+    url = "https://github.com/lewis6991/gitsigns.nvim"
+  },
   ["gruvbox-material"] = {
     loaded = true,
     path = "/Users/ganquan/.local/share/nvim/site/pack/packer/start/gruvbox-material",
@@ -135,6 +147,28 @@ _G.packer_plugins = {
     path = "/Users/ganquan/.local/share/nvim/site/pack/packer/start/vim-code-dark",
     url = "https://github.com/tomasiser/vim-code-dark"
   },
+  ["vim-conflicted"] = {
+    commands = { "Conflicted" },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/Users/ganquan/.local/share/nvim/site/pack/packer/opt/vim-conflicted",
+    url = "https://github.com/christoomey/vim-conflicted"
+  },
+  ["vim-flog"] = {
+    commands = { "Flog" },
+    loaded = false,
+    needs_bufread = true,
+    only_cond = false,
+    path = "/Users/ganquan/.local/share/nvim/site/pack/packer/opt/vim-flog",
+    url = "https://github.com/rbong/vim-flog"
+  },
+  ["vim-fugitive"] = {
+    config = { "require('config.fugitive')" },
+    loaded = true,
+    path = "/Users/ganquan/.local/share/nvim/site/pack/packer/start/vim-fugitive",
+    url = "https://github.com/tpope/vim-fugitive"
+  },
   ["vim-startify"] = {
     loaded = true,
     path = "/Users/ganquan/.local/share/nvim/site/pack/packer/start/vim-startify",
@@ -148,14 +182,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: nvim-lspconfig
-time([[Config for nvim-lspconfig]], true)
-require('config.lsp')
-time([[Config for nvim-lspconfig]], false)
--- Config for: neoscroll.nvim
-time([[Config for neoscroll.nvim]], true)
-require('config.neoscroll')
-time([[Config for neoscroll.nvim]], false)
+-- Setup for: committia.vim
+time([[Setup for committia.vim]], true)
+vim.cmd('packadd committia.vim')
+time([[Setup for committia.vim]], false)
 -- Config for: lualine.nvim
 time([[Config for lualine.nvim]], true)
 require('config.lualine')
@@ -164,12 +194,35 @@ time([[Config for lualine.nvim]], false)
 time([[Config for nvim-tree.lua]], true)
 require('config.nvimtree')
 time([[Config for nvim-tree.lua]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+require('config.gitsigns')
+time([[Config for gitsigns.nvim]], false)
+-- Config for: neoscroll.nvim
+time([[Config for neoscroll.nvim]], true)
+require('config.neoscroll')
+time([[Config for neoscroll.nvim]], false)
+-- Config for: vim-fugitive
+time([[Config for vim-fugitive]], true)
+require('config.fugitive')
+time([[Config for vim-fugitive]], false)
+-- Config for: nvim-lspconfig
+time([[Config for nvim-lspconfig]], true)
+require('config.lsp')
+time([[Config for nvim-lspconfig]], false)
+
+-- Command lazy-loads
+time([[Defining lazy-load commands]], true)
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Flog lua require("packer.load")({'vim-flog'}, { cmd = "Flog", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Conflicted lua require("packer.load")({'vim-conflicted'}, { cmd = "Conflicted", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+time([[Defining lazy-load commands]], false)
+
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Event lazy-loads
 time([[Defining lazy-load event autocommands]], true)
-vim.cmd [[au VimEnter * ++once lua require("packer.load")({'bufferline.nvim'}, { event = "VimEnter *" }, _G.packer_plugins)]]
 vim.cmd [[au BufEnter * ++once lua require("packer.load")({'nvim-treesitter'}, { event = "BufEnter *" }, _G.packer_plugins)]]
+vim.cmd [[au VimEnter * ++once lua require("packer.load")({'bufferline.nvim'}, { event = "VimEnter *" }, _G.packer_plugins)]]
 time([[Defining lazy-load event autocommands]], false)
 vim.cmd("augroup END")
 
