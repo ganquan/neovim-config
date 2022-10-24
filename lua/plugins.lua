@@ -67,6 +67,14 @@ return require('packer').startup(function(use)
 
     use { 'kevinhwang91/nvim-bqf', ft = "qf", config = [[require('config.bqf')]] }
 
+
+    use { 'nvim-telescope/telescope.nvim', 
+            tag = '0.1.0',
+            requires = { { 'nvim-lua/plenary.nvim' } },
+        }
+    -- search emoji and other symbols
+    use { 'nvim-telescope/telescope-symbols.nvim', after = "telescope.nvim" }
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then
