@@ -12,7 +12,10 @@ end
 local packer_bootstrap = ensure_packer()
 
 return require('packer').startup(function(use)
-    use 'wbthomason/packer.nvim'
+    -- it is recommended to put impatient.nvim before any other plugins
+    use { 'lewis6991/impatient.nvim', config = [[require('impatient')]] }
+
+    use {'wbthomason/packer.nvim'}
     -- My plugins here
 
     use {'neovim/nvim-lspconfig', config = [[require('config.lsp')]] } -- Configurations for Nvim LSP
@@ -50,17 +53,19 @@ return require('packer').startup(function(use)
             config = [[require('config.neoscroll')]] 
         }
 
-    use { "tpope/vim-fugitive", config = [[require('config.fugitive')]] }
+    use { 'tpope/vim-fugitive', config = [[require('config.fugitive')]] }
     -- Better git log display
-    use { "rbong/vim-flog", requires = "tpope/vim-fugitive", cmd = { "Flog" } }
+    use { 'rbong/vim-flog', requires = "tpope/vim-fugitive", cmd = { "Flog" } }
 
-    use { "christoomey/vim-conflicted", requires = "tpope/vim-fugitive", cmd = { "Conflicted" } }
+    use { 'christoomey/vim-conflicted', requires = "tpope/vim-fugitive", cmd = { "Conflicted" } }
 
     -- Show git change (change, delete, add) signs in vim sign column
-    use { "lewis6991/gitsigns.nvim", config = [[require('config.gitsigns')]] }
+    use { 'lewis6991/gitsigns.nvim', config = [[require('config.gitsigns')]] }
 
     -- Better git commit experience
-    use { "rhysd/committia.vim", opt = true, setup = [[vim.cmd('packadd committia.vim')]] }
+    use { 'rhysd/committia.vim', opt = true, setup = [[vim.cmd('packadd committia.vim')]] }
+
+    use { 'kevinhwang91/nvim-bqf', ft = "qf", config = [[require('config.bqf')]] }
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
