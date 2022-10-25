@@ -37,3 +37,5 @@ nnoremap <C-H> <C-W><C-H>
 
 " Set floaterm window foreground to gray once the cursor moves out from it
 hi FloatermNC guifg=gray
+
+set equalprg=clang-format\ -style='file'

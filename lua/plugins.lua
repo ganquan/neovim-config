@@ -12,35 +12,86 @@ end
 local packer_bootstrap = ensure_packer()
 
 return require('packer').startup(function(use)
+
+    --------------------------------------------------------------------------------
+    -- basic plugin
+    --------------------------------------------------------------------------------
     -- it is recommended to put impatient.nvim before any other plugins
     use { 'lewis6991/impatient.nvim', config = [[require('impatient')]] }
+    use { 'wbthomason/packer.nvim'}
+    --------------------------------------------------------------------------------
 
-    use {'wbthomason/packer.nvim'}
-    -- My plugins here
 
-
-    use {'j-hui/fidget.nvim',
-            after = "nvim-lspconfig",
-            config = [[require('config.fidget-nvim')]] 
+    --------------------------------------------------------------------------------
+    -- Programming Language related
+    --------------------------------------------------------------------------------
+    -- code completion
+    use { 'onsails/lspkind-nvim', event = "VimEnter" }
+    use { 'hrsh7th/nvim-cmp', 
+                after = "lspkind-nvim",
+                config = [[require('config.nvim-cmp')]] 
         }
 
-    use {'neovim/nvim-lspconfig', config = [[require('config.lsp')]] } -- Configurations for Nvim LSP
-    use {'mhinz/vim-startify'}
-    use {'tomasiser/vim-code-dark'}
-    use {'sainnhe/gruvbox-material'}
+    use { 'hrsh7th/cmp-nvim-lsp' }
+    use { 'hrsh7th/cmp-buffer' }
+    use { 'hrsh7th/cmp-path' }
+    use { 'hrsh7th/cmp-cmdline' }
+    use { 'hrsh7th/cmp-vsnip' }
 
-    -- Comment plugin
-    use { "tpope/vim-commentary", event = "VimEnter" }
+    -- LSP
+    use {'neovim/nvim-lspconfig', config = [[require('config.lsp')]] } 
+    use { 'j-hui/fidget.nvim', 
+                after = "nvim-lspconfig",
+                config = [[require('config.fidget-nvim')]] 
+        }
+
+    -- syntax highlight
+    use { 'nvim-treesitter/nvim-treesitter',
+                event = "BufEnter",
+                run = function() require('nvim-treesitter.install')
+                            .update({with_sync = true}) end,
+                config = [[require('config.treesitter')]]
+        }
+
+    -- LSP symbols list
+    use {'liuchengxu/vista.vim'}
+    --------------------------------------------------------------------------------
+
+
+    --------------------------------------------------------------------------------
+     -- Git
+    --------------------------------------------------------------------------------
+    use { 'tpope/vim-fugitive', config = [[require('config.fugitive')]] }
+    use { 'christoomey/vim-conflicted', requires = "tpope/vim-fugitive",
+                cmd = {
+                    "Conflicted"
+                }
+        }
+
+    -- Show git change (change, delete, add) signs in vim sign column
+    use { 'lewis6991/gitsigns.nvim', config = [[require('config.gitsigns')]] }
+
+    -- Better git commit experience
+    use { 'rhysd/committia.vim', opt = true, setup = [[vim.cmd('packadd committia.vim')]] }
+    --------------------------------------------------------------------------------
+
+
+    --------------------------------------------------------------------------------
+    -- Terminal
+    --------------------------------------------------------------------------------
+    use { 'voldikss/vim-floaterm' }
+    --------------------------------------------------------------------------------
+
+
+    --------------------------------------------------------------------------------
+    -- Editor enhancement
+    --------------------------------------------------------------------------------
+    use {'mhinz/vim-startify'}
+    use { 'sainnhe/gruvbox-material'}
 
     use {'nvim-lualine/lualine.nvim',
             requires = { 'kyazdani42/nvim-web-devicons', opt = true },
             config = [[require('config.lualine')]]
-    }
-
-    use {'nvim-treesitter/nvim-treesitter',
-            event = "BufEnter",
-            run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
-            config = [[require('config.treesitter')]]
     }
 
     use {'akinsho/bufferline.nvim', event = "VimEnter",
@@ -50,6 +101,9 @@ return require('packer').startup(function(use)
             config = [[require('config.bufferline')]] 
     }
 
+    use { 'andymass/vim-matchup', event = "VimEnter" }      -- better match
+    use { "tpope/vim-commentary", event = "VimEnter" }      -- comment
+
     use {'nvim-tree/nvim-tree.lua',
             requires = {
                 'nvim-tree/nvim-web-devicons', -- optional, for file icons
@@ -57,63 +111,27 @@ return require('packer').startup(function(use)
             config = [[require('config.nvimtree')]] 
     }
 
-    use {'liuchengxu/vista.vim'}
+
     use {'karb94/neoscroll.nvim',
             config = [[require('config.neoscroll')]] 
         }
 
-    use { 'tpope/vim-fugitive', config = [[require('config.fugitive')]] }
-    -- Better git log display
-    use { 'rbong/vim-flog', requires = "tpope/vim-fugitive", cmd = { "Flog" } }
-
-    use { 'christoomey/vim-conflicted', requires = "tpope/vim-fugitive", cmd = { "Conflicted" } }
-
-    -- Show git change (change, delete, add) signs in vim sign column
-    use { 'lewis6991/gitsigns.nvim', config = [[require('config.gitsigns')]] }
-
-    -- Better git commit experience
-    use { 'rhysd/committia.vim', opt = true, setup = [[vim.cmd('packadd committia.vim')]] }
-
     use { 'kevinhwang91/nvim-bqf', ft = "qf", config = [[require('config.bqf')]] }
 
 
-    use { 'nvim-telescope/telescope.nvim', 
-            tag = '0.1.0',
-            requires = { { 'nvim-lua/plenary.nvim' } },
-        }
+    use { 'nvim-telescope/telescope.nvim', tag = '0.1.0', requires = {{'nvim-lua/plenary.nvim'}} }
     -- search emoji and other symbols
     use { 'nvim-telescope/telescope-symbols.nvim', after = "telescope.nvim" }
 
-    use { 'andymass/vim-matchup', event = "VimEnter" }
-
     -- notification plugin
-    use {
-      'rcarriga/nvim-notify',
-      event = "BufEnter",
-      config = function()
-        vim.defer_fn(function()
-          require("config.nvim-notify")
-        end, 2000)
-      end,
-    }
+    use { 'rcarriga/nvim-notify',
+                event = "BufEnter",
+                config = function() vim.defer_fn(function() 
+                    require("config.nvim-notify") end, 2000) end,
+         }
+    --------------------------------------------------------------------------------
 
-    use { 'voldikss/vim-floaterm' }
-
-    use { 'onsails/lspkind-nvim', event = "VimEnter" }
-    use { 'hrsh7th/nvim-cmp', 
-            after = "lspkind-nvim",
-            config = [[require('config.nvim-cmp')]] 
-        }
-
-    use { 'hrsh7th/cmp-nvim-lsp' }
-    use { 'hrsh7th/cmp-buffer' }
-    use { 'hrsh7th/cmp-path' }
-    use { 'hrsh7th/cmp-cmdline' }
-
-    use { 'hrsh7th/cmp-vsnip' }
-    use { 'hrsh7th/vim-vsnip' }
-
-
+    
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then
