@@ -6,4 +6,4 @@ function FormatBuffer()
   endif
 endfunction
 
-autocmd BufWritePre *.h,*.hpp,*.c,*.cpp,*.vert,*.frag :call FormatBuffer()
+autocmd BufWritePre *.h,*.hpp,*.c,*.cpp,*.vert,*.frag :silent call FormatBuffer() 
