@@ -1,3 +1,5 @@
+[English](./README.md) | 中文说明
+
 # 简介
 
 这是一份轻量级的Neovim配置，适用于C/C++开发。

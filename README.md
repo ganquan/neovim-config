@@ -1,8 +1,6 @@
 
 
-[English](./README.md)
-
-[中文](./README_zh_CN.md)
+English | [中文说明](./README_zh_CN.md)
 
 # Introduce
 
