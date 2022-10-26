@@ -6,12 +6,10 @@ set tabstop=4                   " 指定一个tab的字符宽度
 set softtabstop=4               " 可以微调插入的空格数
 set shiftwidth=4                " 普通模式下使用缩进插入或者删除的空格数
 set hidden                      " 允许在未保存 buffer 的时候切换至另一个 buffer
+set nohlsearch                  " 关闭搜索高亮，非常烦人
 
 " 切换buffer
 " Leader Key Setup {{{
-nmap <Leader><Tab> :bn<CR> "next buffer
-nmap <Leader><S-Tab> :bp<CR> "previous buffer
-
 nnoremap <silent><leader>1 <cmd>lua require("bufferline").go_to_buffer(1, true)<cr>
 nnoremap <silent><leader>2 <cmd>lua require("bufferline").go_to_buffer(2, true)<cr>
 nnoremap <silent><leader>3 <cmd>lua require("bufferline").go_to_buffer(3, true)<cr>
@@ -22,8 +20,6 @@ nnoremap <silent><leader>7 <cmd>lua require("bufferline").go_to_buffer(7, true)<
 nnoremap <silent><leader>8 <cmd>lua require("bufferline").go_to_buffer(8, true)<cr>
 nnoremap <silent><leader>9 <cmd>lua require("bufferline").go_to_buffer(9, true)<cr>
 nnoremap <silent><leader>$ <cmd>lua require("bufferline").go_to_buffer(-1, true)<cr>
-
-
 " }}}
 
 
