@@ -59,7 +59,7 @@ return require('packer').startup(function(use)
 
 
     --------------------------------------------------------------------------------
-     -- Git
+    -- Git
     --------------------------------------------------------------------------------
     use { 'tpope/vim-fugitive', config = [[require('config.fugitive')]] }
     use { 'christoomey/vim-conflicted', requires = "tpope/vim-fugitive",
@@ -70,9 +70,6 @@ return require('packer').startup(function(use)
 
     -- Show git change (change, delete, add) signs in vim sign column
     use { 'lewis6991/gitsigns.nvim', config = [[require('config.gitsigns')]] }
-
-    -- Better git commit experience
-    use { 'rhysd/committia.vim', opt = true, setup = [[vim.cmd('packadd committia.vim')]] }
     --------------------------------------------------------------------------------
 
 
