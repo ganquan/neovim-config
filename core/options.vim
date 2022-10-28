@@ -7,6 +7,7 @@ set softtabstop=4               " 可以微调插入的空格数
 set shiftwidth=4                " 普通模式下使用缩进插入或者删除的空格数
 set hidden                      " 允许在未保存 buffer 的时候切换至另一个 buffer
 set nohlsearch                  " 关闭搜索高亮，非常烦人
+set diffopt=vertical
 
 " 切换buffer
 " Leader Key Setup {{{

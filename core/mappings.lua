@@ -17,5 +17,10 @@ keymap.set("t", "<leader>ft", "<C-\\><C-n><cmd>FloatermToggle<CR>", { silent = t
 
 
 -- bufferline buffer navigation
-keymap.set("n", "[b", "<cmd>BufferLineCycleNext<cr>", { silent = true, desc = "next buffer" })
-keymap.set("n", "b]", "<cmd>BufferLineCyclePrev<cr>", { silent = true, desc = "prev buffer" })
+keymap.set("n", "[b", "<cmd>BufferLineCyclePrev<cr>", { silent = true, desc = "prev buffer" })
+keymap.set("n", "]b", "<cmd>BufferLineCycleNext<cr>", { silent = true, desc = "next buffer" })
+
+
+keymap.set("n", "[q", "<cmd>cprev<cr>", { silent = true, desc = "prev quicklist" })
+keymap.set("n", "]q", "<cmd>cnext<cr>", { silent = true, desc = "next quicklist" })
+

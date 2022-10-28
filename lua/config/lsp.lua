@@ -36,8 +36,11 @@ local lsp_flags = {
     -- This is the default in Nvim 0.7+
     debounce_text_changes = 150,
 }
+
 require('lspconfig')['clangd'].setup{
     on_attach = on_attach,
     filetypes = { "c", "cpp", "cc" },
     flags = lsp_flags,
+    cmd = {"clangd", "--background-index"},
+    single_file_support = true,
 }

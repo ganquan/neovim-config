@@ -98,7 +98,6 @@ return require('packer').startup(function(use)
             config = [[require('config.bufferline')]] 
     }
 
-    use { 'andymass/vim-matchup', event = "VimEnter" }      -- better match
     use { "tpope/vim-commentary", event = "VimEnter" }      -- comment
 
     use {'nvim-tree/nvim-tree.lua',
