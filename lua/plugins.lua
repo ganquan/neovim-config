@@ -11,6 +11,21 @@ end
 
 local packer_bootstrap = ensure_packer()
 
+vim.cmd([[ 
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerSync
+  augroup end
+]])
+
+
+
+-- import packer safely
+local status, packer = pcall(require, "packer")
+if not status then
+	return
+end
+
 return require('packer').startup(function(use)
 
     --------------------------------------------------------------------------------
@@ -20,7 +35,6 @@ return require('packer').startup(function(use)
     use { 'lewis6991/impatient.nvim', config = [[require('impatient')]] }
     use { 'wbthomason/packer.nvim'}
     --------------------------------------------------------------------------------
-
 
     --------------------------------------------------------------------------------
     -- Programming Language related
