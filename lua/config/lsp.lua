@@ -1,3 +1,15 @@
+-- import lspconfig plugin safely
+local lspconfig_status, lspconfig = pcall(require, "lspconfig")
+if not lspconfig_status then
+	return
+end
+
+-- import cmp-nvim-lsp plugin safely
+local cmp_nvim_lsp_status, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+if not cmp_nvim_lsp_status then
+	return
+end
+
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap=true, silent=true }
@@ -32,15 +44,19 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
 end
 
+-- used to enable autocompletion (assign to every lsp server config)
+local capabilities = cmp_nvim_lsp.default_capabilities()
+
 local lsp_flags = {
     -- This is the default in Nvim 0.7+
     debounce_text_changes = 150,
 }
 
-require('lspconfig')['clangd'].setup{
+lspconfig['clangd'].setup({
+    capabilities = capabilities,
     on_attach = on_attach,
     filetypes = { "c", "cpp", "cc" },
     flags = lsp_flags,
     cmd = {"clangd", "--background-index"},
     single_file_support = true,
-}
+})
