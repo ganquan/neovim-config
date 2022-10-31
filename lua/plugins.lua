@@ -107,7 +107,7 @@ return require('packer').startup(function(use)
             config = [[require('config.nvimtree')]] 
     }
 
-
+    use("szw/vim-maximizer")
     use {'karb94/neoscroll.nvim',
             config = [[require('config.neoscroll')]] 
         }
