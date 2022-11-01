@@ -100,6 +100,8 @@ return require('packer').startup(function(use)
     use {'mhinz/vim-startify'}
     use { 'sainnhe/gruvbox-material'}
 
+    use {'kyazdani42/nvim-web-devicons'}
+
     use {'nvim-lualine/lualine.nvim',
             requires = { 'kyazdani42/nvim-web-devicons', opt = true },
             config = [[require('config.lualine')]]
@@ -148,3 +150,4 @@ return require('packer').startup(function(use)
         require('packer').sync()
     end
 end)
+
