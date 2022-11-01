@@ -51,6 +51,7 @@ return require('packer').startup(function(use)
     use { 'hrsh7th/cmp-path' }
     use { 'hrsh7th/cmp-cmdline' }
     use { 'hrsh7th/cmp-vsnip' }
+    use { 'hrsh7th/vim-vsnip' }
 
     -- LSP
     use {'neovim/nvim-lspconfig', config = [[require('config.lsp')]] } 
@@ -115,7 +116,7 @@ return require('packer').startup(function(use)
     }
 
     use { "tpope/vim-commentary", event = "VimEnter" }      -- comment
-
+    use { 'jiangmiao/auto-pairs', event = "VimEnter" }      -- comment
     use {'nvim-tree/nvim-tree.lua',
             requires = {
                 'nvim-tree/nvim-web-devicons', -- optional, for file icons
