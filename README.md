@@ -33,7 +33,6 @@ My Neovim configuration for C/C++.
 + Color Scheme: sainnhe/gruvbox-material
 + Statusline: lualine.nvim
 + Buffer management: bufferline.lua
-+ Better match: andymass/vim-matchup
 + Code comment: tpope/vim-commentary
 + File Explorer: nvim-tree/nvim-tree.lua
 + QuickFix: kevinhwang91/nvim-bqf
