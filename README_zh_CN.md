@@ -36,7 +36,6 @@
 + Color Scheme: sainnhe/gruvbox-material
 + Statusline: lualine.nvim
 + Buffer management: bufferline.lua
-+ Better match: andymass/vim-matchup
 + Code comment: tpope/vim-commentary
 
 + File Explorer: nvim-tree/nvim-tree.lua
