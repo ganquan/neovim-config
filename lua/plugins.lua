@@ -116,7 +116,12 @@ return require('packer').startup(function(use)
     }
 
     use { "tpope/vim-commentary", event = "VimEnter" }      -- comment
-    use { 'jiangmiao/auto-pairs', event = "VimEnter" }      -- comment
+
+    use {
+        "windwp/nvim-autopairs",
+        config = function() require("nvim-autopairs").setup {} end
+    }
+
     use {'nvim-tree/nvim-tree.lua',
             requires = {
                 'nvim-tree/nvim-web-devicons', -- optional, for file icons
