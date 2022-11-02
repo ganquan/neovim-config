@@ -55,7 +55,7 @@ local lsp_flags = {
 lspconfig['clangd'].setup({
     capabilities = capabilities,
     on_attach = on_attach,
-    filetypes = { "c", "cpp", "cc" },
+    filetypes = { "h", "c", "cpp", "cc" },
     flags = lsp_flags,
     cmd = {"clangd", "--background-index"},
     single_file_support = true,

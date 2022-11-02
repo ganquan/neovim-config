@@ -1,6 +1,8 @@
 lua require('plugins')
 
 """"""""""""""""""""""""""" Vista settings """""""""""""""""""""""""""""""""""""
+let g:vista_sidebar_width = 50
+
 let g:vista#renderer#icons = {
 \   'member': '',
 \   "function": "\uf794",
