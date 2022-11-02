@@ -57,7 +57,14 @@ require("bufferline").setup {
                 text = "Source Tag",
                 highlight = "",
                 separator = true -- use a "true" to enable the default, or set your own character
-            }
+            },
+            {
+                filetype = "lspsagaoutline",
+                text = "Symbol List",
+                highlight = "",
+                separator = true -- use a "true" to enable the default, or set your own character
+            },
+
         }
  
     },

@@ -60,6 +60,13 @@ return require('packer').startup(function(use)
                 config = [[require('config.fidget-nvim')]] 
         }
 
+    use({
+        "glepnir/lspsaga.nvim",
+        branch = "main",
+        after = "nvim-lspconfig",
+        config = [[require('config.lspsaga')]] 
+    })
+
     -- syntax highlight
     use { 'nvim-treesitter/nvim-treesitter',
                 event = "BufEnter",
