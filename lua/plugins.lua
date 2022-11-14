@@ -155,6 +155,7 @@ return require('packer').startup(function(use)
                     require("config.nvim-notify") end, 2000) end,
          }
     --------------------------------------------------------------------------------
+    use {'ganquan/autocwd', config = [[require('config.autocwd')]] }
 
     
     -- Automatically set up your configuration after cloning packer.nvim
