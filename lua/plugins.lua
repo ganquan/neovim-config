@@ -156,6 +156,8 @@ return require('packer').startup(function(use)
          }
     --------------------------------------------------------------------------------
     use {'ganquan/autocwd', config = [[require('config.autocwd')]] }
+    use {'skywind3000/asyncrun.vim'}
+    use {'skywind3000/asynctasks.vim'}
 
     
     -- Automatically set up your configuration after cloning packer.nvim
