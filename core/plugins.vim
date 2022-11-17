@@ -47,7 +47,12 @@ let g:vista_fzf_preview = ['right:50%']
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 "asyncrun""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" automatically open quickfix window when AsyncRun command is executed
+" set the quickfix window 10 lines height.
 let g:asyncrun_open = 10
+
+" ring the bell to notify you job finished
+let g:asyncrun_bell = 1
 let g:asyncrun_rootmarks = ['.git', '.svn', '.root', '.project', '.hg']
 
 nnoremap <silent> <F4> :AsyncRun -cwd=<root>/build cmake .. <cr>
