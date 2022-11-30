@@ -1,5 +1,5 @@
 -- import neovim-session-manager plugin safely
-local status, manager = pcall(require, "session_manager.config")
+local status, manager = pcall(require, "session_manager")
 if not status then
     return
 end

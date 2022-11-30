@@ -93,6 +93,12 @@ keymap.set("n", "<leader>$", "<cmd>lua require(\"bufferline\").go_to_buffer(-1, 
 keymap.set("n", "<leader>xa", ":%bd<cr>", {silent = true, desc = "close all buffers"})
 keymap.set("n", "<leader>xo", ":%bd|e#|bd#<cr>", {silent = true, desc = "close other buffers"})
 
+-- session管理
+keymap.set("n", "<leader>ls", ":SessionManager load_session<cr>", {silent = true, desc = "load session"})
+keymap.set("n", "<leader>ss", ":SessionManager save_current_session<cr>", {silent = true, desc = "save session"})
+keymap.set("n", "<leader>ds", ":SessionManager delete_session<cr>", {silent = true, desc = "delete session"})
+
+
 -- window navigation:w
 keymap.set("n", "<C-J>", "<C-W><C-J>", {silent = true})
 keymap.set("n", "<C-K>", "<C-W><C-K>", {silent = true})

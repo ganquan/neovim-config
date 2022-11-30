@@ -144,9 +144,13 @@ return require('packer').startup(function(use)
     use { 'kevinhwang91/nvim-bqf', ft = "qf", config = [[require('config.bqf')]] }
 
 
-    use { 'nvim-telescope/telescope.nvim', tag = '0.1.0', requires = {{'nvim-lua/plenary.nvim'}} }
+    use { 'nvim-telescope/telescope-ui-select.nvim', requires = {{'nvim-lua/plenary.nvim'}} }
+    use { 'nvim-telescope/telescope.nvim', tag = '0.1.0', 
+        requires = {{'nvim-lua/plenary.nvim'}}, 
+        config = [[require('config.telescope')]] } 
     -- search emoji and other symbols
     use { 'nvim-telescope/telescope-symbols.nvim', after = "telescope.nvim" }
+
 
     -- notification plugin
     use { 'rcarriga/nvim-notify',
