@@ -83,6 +83,16 @@ keymap.set("n", "<leader>8", "<cmd>lua require(\"bufferline\").go_to_buffer(8, t
 keymap.set("n", "<leader>9", "<cmd>lua require(\"bufferline\").go_to_buffer(9, true)<cr>", {silent = true})
 keymap.set("n", "<leader>$", "<cmd>lua require(\"bufferline\").go_to_buffer(-1, true)<cr>", {silent = true})
 
+-- 关闭buffer
+-- explaination: 
+-- %bd: close all buffer
+-- bd#: close unnamed buffer
+-- e#: open the last edit buffer
+-- |: use pipe connect commands above
+-- \: escape character for '|'
+keymap.set("n", "<leader>xa", ":%bd<cr>", {silent = true, desc = "close all buffers"})
+keymap.set("n", "<leader>xo", ":%bd|e#|bd#<cr>", {silent = true, desc = "close other buffers"})
+
 -- window navigation:w
 keymap.set("n", "<C-J>", "<C-W><C-J>", {silent = true})
 keymap.set("n", "<C-K>", "<C-W><C-K>", {silent = true})
