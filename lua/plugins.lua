@@ -159,6 +159,8 @@ return require('packer').startup(function(use)
     use {'skywind3000/asyncrun.vim'}
     use {'skywind3000/asynctasks.vim'}
 
+    use { 'Shatur/neovim-session-manager', config = [[require('config.sessionmanager')]] }
+
     
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
