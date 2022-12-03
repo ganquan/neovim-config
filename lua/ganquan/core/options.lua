@@ -37,3 +37,5 @@ opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 -- split windows
 opt.splitright = true -- split vertical window to the right
 
+
+opt.fileencoding = "utf-8"
