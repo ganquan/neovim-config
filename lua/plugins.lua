@@ -99,6 +99,7 @@ return require('packer').startup(function(use)
     -- Terminal
     --------------------------------------------------------------------------------
     use { 'voldikss/vim-floaterm' }
+    use {"akinsho/toggleterm.nvim", tag = '*', config = [[require('config.toggleterm')]] }
     --------------------------------------------------------------------------------
 
 
