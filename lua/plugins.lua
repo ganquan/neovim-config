@@ -70,8 +70,7 @@ return require('packer').startup(function(use)
     -- syntax highlight
     use { 'nvim-treesitter/nvim-treesitter',
                 event = "BufEnter",
-                run = function() require('nvim-treesitter.install')
-                            .update({with_sync = true}) end,
+                run = function() require('nvim-treesitter.install').update({with_sync = true}) end,
                 config = [[require('config.treesitter')]]
         }
 
@@ -98,7 +97,6 @@ return require('packer').startup(function(use)
     --------------------------------------------------------------------------------
     -- Terminal
     --------------------------------------------------------------------------------
-    use { 'voldikss/vim-floaterm' }
     use {"akinsho/toggleterm.nvim", tag = '*', config = [[require('config.toggleterm')]] }
     --------------------------------------------------------------------------------
 
