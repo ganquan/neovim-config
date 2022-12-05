@@ -6,7 +6,13 @@ end
 
 toggleterm.setup({
     open_mapping = [[<c-\>]],
-    hide_numbers = true
+    hide_numbers = true,
+    winbar = {
+        enabled = false,
+        name_formatter = function(term) --  term: Terminal
+            return term.name
+        end
+    },
 })
 
 function _G.set_terminal_keymaps()
