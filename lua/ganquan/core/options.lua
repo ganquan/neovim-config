@@ -39,5 +39,7 @@ opt.splitright = true -- split vertical window to the right
 
 
 opt.fileencoding = "utf-8"
-opt.timeoutlen = 20
-opt.ttimeoutlen = 20
+-- timeoutlen default 1000
+opt.timeoutlen = 400
+-- ttimeoutlen default 50 
+opt.ttimeoutlen = 40
