@@ -57,5 +57,6 @@ let g:asyncrun_rootmarks = ['.git', '.svn', '.root', '.project', '.hg']
 
 nnoremap <silent> <F4> :AsyncRun -cwd=<root>/build cmake .. <cr>
 nnoremap <silent> <F6> :AsyncTask project-run<cr>
+nnoremap <silent> <S-F6> :AsyncStop<cr>
 nnoremap <silent> <F7> :AsyncTask project-build<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

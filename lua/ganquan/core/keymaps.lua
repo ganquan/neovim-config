@@ -54,10 +54,6 @@ keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>") -- list current c
 -- restart lsp server (not on youtube nvim video)
 keymap.set("n", "<leader>rs", ":LspRestart<cr>") -- mapping to restart lsp if necessary
 
--- float terminal
-keymap.set("n", "<leader>ft", "<cmd>FloatermToggle<cr>", { silent = true, desc = "toggle float terminal" })
-keymap.set("t", "<leader>ft", "<C-\\><C-n><cmd>FloatermToggle<cr>", { silent = true, desc = "toggle float terminal" })
-
 
 -- bufferline buffer navigation
 keymap.set("n", "[b", "<cmd>BufferLineCyclePrev<cr>", { silent = true, desc = "prev buffer" })
