@@ -6,7 +6,7 @@ end
 
 local keymap = vim.keymap.set
 
-saga.init_lsp_saga({
+saga.setup({
 
     show_outline = {
         win_position = 'right',
