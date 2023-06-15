@@ -7,8 +7,8 @@ end
 
 treesitter.setup ({
     -- A list of parser names, or "all"
-    -- ensure_installed = { "c", "lua", "cpp", "vim", "json", "gitignore", "markdown" },
-    ensure_installed = "all",
+    ensure_installed = { "c", "lua", "cpp", "vim", "json", "gitignore", "markdown" },
+    -- ensure_installed = "all",
 
     -- Install parsers synchronously (only applied to `ensure_installed`)
     sync_install = false,
