@@ -105,7 +105,7 @@ return require('packer').startup(function(use)
     -- Editor enhancement
     --------------------------------------------------------------------------------
     use {'mhinz/vim-startify'}
-    use { 'sainnhe/gruvbox-material'}
+    use {'sainnhe/gruvbox-material'}
 
     use {'kyazdani42/nvim-web-devicons'}
 
