@@ -103,3 +103,5 @@ keymap.set("n", "<C-H>", "<C-W><C-H>", {silent = true})
 
 -- switch source and header
 keymap.set("n", "<leader><F4>", ":ClangdSwitchSourceHeader<cr>", {silent = true, desc = "Switch Source Header"})
+
+keymap.set("n", "<leader>jf", ":%!jq .<CR>", {silent = true, desc = "format json file use jq."})
