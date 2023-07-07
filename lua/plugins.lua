@@ -158,6 +158,10 @@ return require('packer').startup(function(use)
                     require("config.nvim-notify") end, 2000) end,
          }
     --------------------------------------------------------------------------------
+    -- for tmux
+    use { 'aserowy/tmux.nvim',  config = [[require('config.tmux')]] }
+    --------------------------------------------------------------------------------
+
     use {'ganquan/autocwd', config = [[require('config.autocwd')]] }
     use {'skywind3000/asyncrun.vim'}
     use {'skywind3000/asynctasks.vim'}
