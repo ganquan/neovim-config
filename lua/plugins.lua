@@ -61,7 +61,7 @@ return require('packer').startup(function(use)
         }
 
     use({
-        "glepnir/lspsaga.nvim",
+        "nvimdev/lspsaga.nvim",
         branch = "main",
         after = "nvim-lspconfig",
         config = [[require('config.lspsaga')]] 
@@ -92,7 +92,6 @@ return require('packer').startup(function(use)
     -- Show git change (change, delete, add) signs in vim sign column
     use { 'lewis6991/gitsigns.nvim', config = [[require('config.gitsigns')]] }
     --------------------------------------------------------------------------------
-
 
     --------------------------------------------------------------------------------
     -- Terminal
@@ -149,6 +148,11 @@ return require('packer').startup(function(use)
         config = [[require('config.telescope')]] } 
     -- search emoji and other symbols
     use { 'nvim-telescope/telescope-symbols.nvim', after = "telescope.nvim" }
+
+    -- auto remove search highlight and rehighlight when using n or N
+    use {'nvimdev/hlsearch.nvim', event = 'BufRead', config = function()
+        require('hlsearch').setup() end
+        }
 
 
     -- notification plugin
