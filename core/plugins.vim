@@ -59,5 +59,5 @@ nnoremap <silent> <F4> :AsyncTask project-init<cr>
 nnoremap <silent> <F6> :AsyncTask project-run<cr>
 nnoremap <silent> <S-F6> :AsyncStop<cr>
 nnoremap <silent> <F7> :AsyncTask project-build<cr>
-nnoremap <silent> <S-F2> :AsyncTask project-clean<cr>
+nnoremap <silent> <F8> :AsyncTask project-clean<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

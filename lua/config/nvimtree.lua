@@ -92,11 +92,6 @@ nvimtree.setup({
     view = {
         adaptive_size = true,
         number = true,
-        mappings = {
-            list = {
-                { key = "u", action = "dir_up" },
-            },
-        },
     },
     -- change folder arrow icons
     renderer = {
