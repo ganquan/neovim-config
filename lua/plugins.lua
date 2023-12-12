@@ -61,9 +61,8 @@ return require('packer').startup(function(use)
         }
 
     use({
-        "nvimdev/lspsaga.nvim",
-        branch = "main",
-        after = "nvim-lspconfig",
+        'nvimdev/lspsaga.nvim',
+        after = 'nvim-lspconfig',
         config = [[require('config.lspsaga')]] 
     })
 
@@ -143,7 +142,7 @@ return require('packer').startup(function(use)
 
 
     use { 'nvim-telescope/telescope-ui-select.nvim', requires = {{'nvim-lua/plenary.nvim'}} }
-    use { 'nvim-telescope/telescope.nvim', tag = '0.1.0', 
+    use { 'nvim-telescope/telescope.nvim', tag = '0.1.5', 
         requires = {{'nvim-lua/plenary.nvim'}}, 
         config = [[require('config.telescope')]] } 
     -- search emoji and other symbols
