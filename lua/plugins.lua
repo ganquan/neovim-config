@@ -105,17 +105,17 @@ return require('packer').startup(function(use)
     use {'mhinz/vim-startify'}
     use {'sainnhe/gruvbox-material'}
 
-    use {'kyazdani42/nvim-web-devicons'}
+    use {'nvim-tree/nvim-web-devicons'}
 
     use {'nvim-lualine/lualine.nvim',
-            requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+            requires = { 'nvim-tree/nvim-web-devicons', opt = true },
             config = [[require('config.lualine')]]
     }
 
     use {'akinsho/bufferline.nvim', event = "VimEnter",
             tag = "v3.*", 
             cond = firenvim_not_active,
-            requires = 'kyazdani42/nvim-web-devicons',
+            requires = 'nvim-tree/nvim-web-devicons',
             config = [[require('config.bufferline')]] 
     }
 
