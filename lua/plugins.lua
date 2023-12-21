@@ -55,7 +55,7 @@ return require('packer').startup(function(use)
 
     -- LSP
     use {'neovim/nvim-lspconfig', config = [[require('config.lsp')]] } 
-    use { 'j-hui/fidget.nvim', tag = 'legacy', 
+    use { 'j-hui/fidget.nvim', 
                 after = "nvim-lspconfig",
                 config = [[require('config.fidget-nvim')]] 
         }
