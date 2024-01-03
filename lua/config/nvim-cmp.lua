@@ -1,6 +1,14 @@
 -- Setup nvim-cmp.
-local cmp = require("cmp")
-local lspkind = require("lspkind")
+local cmp_status, cmp = pcall(require, "cmp")
+if not cmp_status then
+    return
+end
+
+local lspkind_status, cmp = pcall(require, "lspkind")
+if not lspkind_status then
+    return
+end
+
 
 cmp.setup {
     snippet = {
