@@ -4,7 +4,7 @@ if not cmp_status then
     return
 end
 
-local lspkind_status, cmp = pcall(require, "lspkind")
+local lspkind_status, lspkind = pcall(require, "lspkind")
 if not lspkind_status then
     return
 end
