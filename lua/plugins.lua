@@ -39,32 +39,31 @@ return require('packer').startup(function(use)
     --------------------------------------------------------------------------------
     -- Programming Language related
     --------------------------------------------------------------------------------
+    -- LSP
+    use {'neovim/nvim-lspconfig', config = [[require('config.lsp')]] } 
+    use {'j-hui/fidget.nvim', 
+                after = "nvim-lspconfig",
+                config = [[require('config.fidget-nvim')]] 
+        }
+
+    use {'nvimdev/lspsaga.nvim',
+        after = 'nvim-lspconfig',
+        config = [[require('config.lspsaga')]] 
+    }
+
     -- code completion
     use { 'onsails/lspkind-nvim', event = "VimEnter" }
+    use { 'hrsh7th/cmp-nvim-lsp' }
+    use { 'hrsh7th/cmp-buffer' }
+    use { 'hrsh7th/cmp-path' }
+    use { 'hrsh7th/cmp-cmdline' }
     use { 'hrsh7th/nvim-cmp', 
                 after = "lspkind-nvim",
                 config = [[require('config.nvim-cmp')]] 
         }
 
-    use { 'hrsh7th/cmp-nvim-lsp' }
-    use { 'hrsh7th/cmp-buffer' }
-    use { 'hrsh7th/cmp-path' }
-    use { 'hrsh7th/cmp-cmdline' }
     use { 'hrsh7th/cmp-vsnip' }
     use { 'hrsh7th/vim-vsnip' }
-
-    -- LSP
-    use {'neovim/nvim-lspconfig', config = [[require('config.lsp')]] } 
-    use { 'j-hui/fidget.nvim', 
-                after = "nvim-lspconfig",
-                config = [[require('config.fidget-nvim')]] 
-        }
-
-    use({
-        'nvimdev/lspsaga.nvim',
-        after = 'nvim-lspconfig',
-        config = [[require('config.lspsaga')]] 
-    })
 
     -- syntax highlight
     use { 'nvim-treesitter/nvim-treesitter',
